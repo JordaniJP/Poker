@@ -9,6 +9,7 @@ class Hand:
         self.hand.append(self.deck.drawCard())
         self.hand.append(self.deck.drawCard())
         self.hand.append(self.deck.drawCard())
+        sorted(self.hand, reverse=False)
     def setHand(self, cardOne,cardTwo,cardThree,cardFour,cardFive):
         self.hand =[]
         self.append(cardOne)
@@ -16,19 +17,25 @@ class Hand:
         self.append(cardThree)
         self.append(cardFour)
         self.append(cardFive)
-    def getPokerHand()
-    '''
-    This method will return the poker hand rank.
-    1 - No Pair
-    2 - One Pair
-    3 - Two Pair
-    4 - Three of a Kind
-    5 - Straight
-    6 - Flush
-    7 - Full House
-    8 - Four of a Kind
-    9 - Straight Flush
-    10 - Royal Flush
-    '''
-    return 1
+        def getPokerHand():
+            if 14 and 13 and 12 and 11 and 10 in self.hand:
+                return 10
+            elif self.hand[1] == self.hand[0]+1 and self.hand[2] == self.hand[1]+1 and self.hand[3]==self.hand[2]+1 and self.hand[4]==self.hand[3]+1:
+                return 5
+            elif self.hand[2] == self.hand[1]+1 and self.hand[3]==self.hand[2]+1 and self.hand[4]==self.hand[3]+1:
+                return 5
+            elif self.hand[0] == self.hand[1] and self.hand[1] == self.hand[2] and self.hand[2] == self.hand[3]:
+                return 8
+            elif self.hand[1] == self.hand[2] and self.hand[2] == self.hand[3] and self.hand[3] == self.hand[4]:
+                return 8   
+            elif self.hand[0] == self.hand[1] and self.hand[1] == self.hand[2]:
+                return 4
+            elif self.hand[1] == self.hand[2] and self.hand[2] == self.hand[3]:
+                return 4
+            elif self.hand[2] == self.hand[3] and self.hand[3] == self.hand[4]:  
+                return 4
+            elif self.hand[0] == self.hand[1] or self.hand[1] == self.hand[2] or self.hand[2] == self.hand[3] or self.hand[3] == self.hand[4]:
+                return 2   
+            
+        
         
