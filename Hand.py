@@ -9,7 +9,7 @@ class Hand:
         self.hand.append(self.deck.dealCard())
         self.hand.append(self.deck.dealCard())
         self.hand.append(self.deck.dealCard())
-        sorted(self.hand, reverse=False)
+        sorted(hand.hand, key=Card.getRank())
     def setHand(self, cardOne,cardTwo,cardThree,cardFour,cardFive):
         self.hand =[]
         self.append(cardOne)
