@@ -4,11 +4,11 @@ class Hand:
         self.deck=inputDeck
     def drawHand(self):
         self.hand =[]
-        self.hand.append(self.deck.drawCard())
-        self.hand.append(self.deck.drawCard())
-        self.hand.append(self.deck.drawCard())
-        self.hand.append(self.deck.drawCard())
-        self.hand.append(self.deck.drawCard())
+        self.hand.append(self.deck.dealCard())
+        self.hand.append(self.deck.dealCard())
+        self.hand.append(self.deck.dealCard())
+        self.hand.append(self.deck.dealCard())
+        self.hand.append(self.deck.dealCard())
         sorted(self.hand, reverse=False)
     def setHand(self, cardOne,cardTwo,cardThree,cardFour,cardFive):
         self.hand =[]
