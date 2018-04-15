@@ -1,4 +1,4 @@
-import Deck
+from Deck import Deck
 from Card import Card
 class Hand:
     def __init__(self, inputDeck):
@@ -10,7 +10,7 @@ class Hand:
         self.hand.append(self.deck.dealCard())
         self.hand.append(self.deck.dealCard())
         self.hand.append(self.deck.dealCard())
-        sorted(self.hand, key=Card.getRank)
+        self.hand.sort()
     def setHand(self, cardOne,cardTwo,cardThree,cardFour,cardFive):
         self.hand =[]
         self.append(cardOne)
@@ -23,31 +23,21 @@ class Hand:
         suits = list(map(Card.getSuit, self.hand))
         if 14 and 13 and 12 and 11 and 10 in rankings:
             return 10
-        else:
+        elif rankings[0] == rankings[1]-1 and rankings[1] == rankings[2]-1 and rankings[2] == rankings[3]-1 and rankings[3] == rankings[4]-1 and suits[0] == suits[1] and suits[0] == suits[2] and suits[0] == suits[3] and suits[0] == suits[4]:
+            return 9
+        elif rankings[0] == rankings[1] and rankings[1] == rankings[2] and rankings[2] == rankings[3] and rankings[3] == rankings[4]:
+            return 8
+        elif rankings[0] == rankings[1] and rankings[2] == rankings[1] and rankings[3] == rankings[4] or rankings[4] == rankings[3] and rankings[3] == rankings[2] and rankings[0] == rankings[1]:
+            return 7 
+        elif suits[0] == suits[1] and suits[1] == suits[2] and suits[2] == suits[3] and suits[3] == suits[4]:
+            return 6
+        elif rankings[0] == rankings[1]-1 and rankings[1] == rankings[2]-1 and rankings[2] == rankings[3]-1 and rankings[3] == rankings[4]-1:
+            return 5
+        elif rankings[0] == rankings[1] and rankings[1] == rankings[2] or rankings[1] == rankings[2] and rankings[2] == rankings[3] or rankings[2] == rankings[3] and rankings[3] == rankings[4]:
+            return 4
+        elif rankings[0] == rankings[1] and rankings[2] == rankings[3] or rankings[0] == rankings[1] and rankings[3] == rankings[4] or rankings[1] == rankings[2] and rankings[3] == rankings[4]:
+            return 3
+        elif rankings[0] == rankings[1] or rankings[1] == rankings[2] or rankings[2] == rankings[3] or rankings[3] == rankings[4]:
+            return 2
+        elif rankings[1] != rankings[2]:
             return 1
-        
-        
-        
-        
-        
-        
-        '''
-        elif self.hand[1] == self.hand[0]+1 and self.hand[2] == self.hand[1]+1 and self.hand[3]==self.hand[2]+1 and self.hand[4]==self.hand[3]+1:
-                return 5
-        elif self.hand[2] == self.hand[1]+1 and self.hand[3]==self.hand[2]+1 and self.hand[4]==self.hand[3]+1:
-                return 5
-        elif self.hand[0] == self.hand[1] and self.hand[1] == self.hand[2] and self.hand[2] == self.hand[3]:
-                return 8
-        elif self.hand[1] == self.hand[2] and self.hand[2] == self.hand[3] and self.hand[3] == self.hand[4]:
-                return 8   
-        elif self.hand[0] == self.hand[1] and self.hand[1] == self.hand[2]:
-                return 4
-        elif self.hand[1] == self.hand[2] and self.hand[2] == self.hand[3]:
-                return 4
-        elif self.hand[2] == self.hand[3] and self.hand[3] == self.hand[4]:  
-                return 4
-        elif self.hand[0] == self.hand[1] or self.hand[1] == self.hand[2] or self.hand[2] == self.hand[3] or self.hand[3] == self.hand[4]:
-                return 2   '''
-            
-        
-        
