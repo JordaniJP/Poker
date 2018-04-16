@@ -10,7 +10,7 @@ class Hand:
         self.hand.append(self.deck.dealCard())
         self.hand.append(self.deck.dealCard())
         self.hand.append(self.deck.dealCard())
-        self.hand.sort()
+        self.hand = sorted(self.hand, key=Card.getRank)
     def setHand(self, cardOne,cardTwo,cardThree,cardFour,cardFive):
         self.hand =[]
         self.append(cardOne)
@@ -19,9 +19,10 @@ class Hand:
         self.append(cardFour)
         self.append(cardFive)
     def getPokerHand(self):
+        self.hand = sorted(self.hand, key=Card.getRank)
         rankings = list(map(Card.getRank, self.hand))
         suits = list(map(Card.getSuit, self.hand))
-        if 14 and 13 and 12 and 11 and 10 in rankings:
+        if rankings[0] == 10 and rankings[1] == 11 and rankings[2] == 12 and rankings[3] == rankings[2]+1 and rankings[4] == rankings[3]+1:
             return 10
         elif rankings[0] == rankings[1]-1 and rankings[1] == rankings[2]-1 and rankings[2] == rankings[3]-1 and rankings[3] == rankings[4]-1 and suits[0] == suits[1] and suits[0] == suits[2] and suits[0] == suits[3] and suits[0] == suits[4]:
             return 9
